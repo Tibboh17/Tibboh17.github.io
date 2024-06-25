@@ -1,10 +1,8 @@
 ---
-
 title: What is Database?
 categories: [Database]
 tags: [Database]
 order: 1
-
 ---
 
 # Database
