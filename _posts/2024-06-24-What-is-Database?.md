@@ -17,7 +17,8 @@ order: 1
 - Designed to hold much larger collections of organized information.
 - Allows multiple users at the same time to quickly and securely access and query the data using highly complex logic and language.
   
-  #### Speadsheet
+#### Speadsheet
+
 - Originally designed for one user.
 - Great for a single user or small number of users who don’t need to do a lot of incredibly complicated data manipulation.
 
@@ -39,19 +40,24 @@ order: 1
 
 - A logical representation of data that shows how the data in a database should be stored logically. 
   
-  #### Database Instance
+#### Database Instance
+
 - The data and information that is currently stored in the database at a specific point in time.
   
-  #### Data Constraints
+#### Data Constraints
+
 - Used to specify rules for data in a table.
   
-  #### Data Dictionary (Metadata)
+#### Data Dictionary (Metadata)
+
 - A collection of metadata such as object name, data type, size, classification, and relationships with other data assets.
   
-  #### Data Manipulation
+#### Data Manipulation
+
 - Insertion, Deletion, and Updation.
   
-  #### Query
+#### Query
+
 - Used to access data from the database to retrieve or manipulate data.
 
 # Three Level Architecture of Database
@@ -65,10 +71,12 @@ order: 1
 - Internal Level.
 - Describe how data is actually stored in the database.
   
-  #### Conceptual Level
+#### Conceptual Level
+
 - Logical Level.
 - Describe how the database appears to the users conceptually and the relationships between various data tables.
   
-  #### External Level
+#### External Level
+
 - View Level.
 - Shows the relevant database content to the users in the form of views and hides the rest of the data.
