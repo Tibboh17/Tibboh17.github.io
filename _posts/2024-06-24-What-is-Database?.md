@@ -63,7 +63,7 @@ order: 1
 # Three Level Architecture of Database
 
 <div align="center">
-  <img src="https://github.com/TIBBOH17/Database/assets/121493257/1c016bdc-ee33-439f-bcc2-caef2498caf9" width="50%">
+  <img src="https://github.com/TIBBOH17/Database/assets/121493257/1c016bdc-ee33-439f-bcc2-caef2498caf9" width="50%" alt="Description of Architecture">
 </div>
 
 #### Physical Level
