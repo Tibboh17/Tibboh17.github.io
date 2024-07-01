@@ -29,7 +29,7 @@ order: 5
 - **Root Node** = 0
 - **Parent** = (p - 1) // 2 where **Child** = p
 - **Left Child** = 2 * p + 1 where **Parent** = p
-- **Right Child** = = 2 * p + 2 where **Parent** = p
+- **Right Child** = 2 * p + 2 where **Parent** = p
 
 #### If the Numbering Starts from 1 to n 
 - **Root Node** = 1
