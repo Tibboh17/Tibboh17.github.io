@@ -2,7 +2,6 @@
 title: What is Linked List?
 categories: [CS, Data Structure]
 tag: [CS, Data Structure]
-order: 6
 ---
 
 # Linked List

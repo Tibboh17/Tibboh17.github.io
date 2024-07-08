@@ -2,7 +2,6 @@
 title: What is Binary Tree?
 categories: [CS, Data Structure]
 tag: [CS, Data Structure]
-order: 5
 ---
 
 # Binary Tree

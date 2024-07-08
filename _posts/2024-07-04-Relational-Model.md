@@ -2,7 +2,6 @@
 title: What is Relational Model?
 categories: [Data Engineering, Database]
 tag: [Database]
-order: 3
 ---
 
 # Relational Model
