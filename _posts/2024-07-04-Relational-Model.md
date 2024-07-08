@@ -37,6 +37,7 @@ tag: [Database]
 - Indicate missing or undefined data.
 
 # Features of Relational Model
+
 #### No Duplicate Tuples
 - Each row (tuple) in a table is unique.
 

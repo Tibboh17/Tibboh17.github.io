@@ -18,6 +18,7 @@ tag: [CS, Sorting, Algorithm]
 - Examples: Selection Sort, Quick Sort.
 
 # In-Place
+
 #### In-Place Algorithm
 - Sorts the input array in place, without using additional memory (strict definition).
 - May use a small amount of extra space (broad definition).
@@ -26,19 +27,3 @@ tag: [CS, Sorting, Algorithm]
 #### Not In-Place Algorithm
 - Requires additional memory for sorting.
 - Examples: Merge Sort, Heap Sort.
-
-# Applications of Sorting Algorithm
-#### Searching
-- Sorting helps in efficiently searching elements using algorithms like binary search.
-
-#### Data Organization
-- Helps in arranging data for better readability and organization.
-
-#### Algorithms
-- Many algorithms like graph algorithms rely on sorting as a subroutine.
-
-#### Databases
-- Sorting is crucial for query optimization and efficient data retrieval.
-
-#### Machine Learning
-- Data preprocessing often involves sorting to organize and analyze data.
