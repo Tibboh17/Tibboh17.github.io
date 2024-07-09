@@ -32,6 +32,6 @@ tag: [CS, Data Structure]
 
 #### If the Numbering Starts from `1` to `n` 
 - **Root Node** = `1`
-- **Parent** = `p // 2` where **Child** = `p``
+- **Parent** = `p // 2` where **Child** = `p`
 - **Left Child** = `2 * p` where **Parent** = `p`
 - **Right Child** = `2 * p + 1` where **Parent** = `p`
