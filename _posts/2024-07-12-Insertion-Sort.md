@@ -8,6 +8,7 @@ tag: [CS, Sorting, Algorithm, Insertion Sort]
 - Builds the sorted array one item at a time by inserting elements in their correct position.
 - **Time Complexity**: `O(N^2)`
 
+# Implementation of Algorithm
 ```python
 def insertion_sort(arr):
     for end in range(1, len(arr)):
