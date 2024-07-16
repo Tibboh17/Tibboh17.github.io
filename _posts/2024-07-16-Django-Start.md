@@ -161,6 +161,7 @@ def tibboh(request):
 
 ### Modify the Views
 - We should edit `main/views.py` to render the corresponding templates.
+
 ```python
 from django.shortcuts import render
 
