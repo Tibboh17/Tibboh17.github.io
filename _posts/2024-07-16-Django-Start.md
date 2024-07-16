@@ -62,7 +62,7 @@ python manage.py startapp main
 ```
 
 ### Apply the Application
-- In `main\settings.py`, modify `INSTALLED_APP` to use the application `main`.
+- In `tibboh\settings.py`, modify `INSTALLED_APP` to use the application `main`.
 
 ```python
 INSTALLED_APPS = [
