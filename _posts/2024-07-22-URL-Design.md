@@ -178,13 +178,33 @@ from django.shortcuts import render
 from django.shortcuts import HttpResponse
 
 project_list_db = [
-    {"id": 1, "title": "Let Tibboh Use Django", "content": "This is the content of blog 1", "author": "Author 1"},
-    {"id": 2, "title": "How can I become well on Python", "content": "This is the content of blog 2", "author": "Author 2"}
+    {
+    "id": 1, 
+    "title": "Let Tibboh Use Django", 
+    "content": "This is the content of blog 1", 
+    "author": "Author 1"
+    },
+    {
+    "id": 2, 
+    "title": "How can I become well on Python", 
+    "content": "This is the content of blog 2", 
+    "author": "Author 2"
+    }
 ]
 
 user_list_db = [
-    {"id": 1, "username": "moon", "email": "moon@abc.com", "password": "1234"},
-    {"id": 2, "username": "tibboh", "email": "tibboh@def.com", "password": "1234"}
+    {
+    "id": 1, 
+    "username": "moon", 
+    "email": "moon@abc.com", 
+    "password": "1234"
+    },
+    {
+    "id": 2, 
+    "username": "tibboh", 
+    "email": "tibboh@def.com", 
+    "password": "1234"
+    }
 ]
 
 def index(request):

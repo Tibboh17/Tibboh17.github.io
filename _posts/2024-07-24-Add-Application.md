@@ -232,6 +232,7 @@ Top-Level Directory/
 ### Base Template
 
 ```html
+{% raw %}
 <!-- templates/base/base.html -->
 {% load static %}
 <!DOCTYPE html>
@@ -263,37 +264,45 @@ Top-Level Directory/
     <script src="{% static 'js/custom.js' %}"></script>
 </body>
 </html>
+{% endraw %}
 ```
 
 ### Main Templates
 
 ```html
+{% raw %}
 <!-- templates/main/index.html -->
 {% extends 'base/base.html' %}
 {% block contents %}
     <h1>Main Page</h1>
 {% endblock %}
+{% endraw %}
 ```
 
 ```html
+{% raw %}
 <!-- templates/main/about.html -->
 {% extends 'base/base.html' %}
 {% block contents %}
     <h1>Introduction Page</h1>
 {% endblock %}
+{% endraw %}
 ```
 
 ```html
+{% raw %}
 <!-- templates/main/contact.html -->
 {% extends 'base/base.html' %}
 {% block contents %}
     <h1>Contact Page</h1>
 {% endblock %}
+{% endraw %}
 ```
 
 ### Project Templates
 
 ```html
+{% raw %}
 <!-- templates/project/project_list.html -->
 {% extends 'base/base.html' %}
 {% block contents %}
@@ -307,9 +316,11 @@ Top-Level Directory/
         {% endfor %}
     </ul>
 {% endblock %}
+{% endraw %}
 ```
 
 ```html
+{% raw %}
 <!-- templates/project/project_details.html -->
 {% extends 'base/base.html' %}
 {% block contents %}
@@ -319,6 +330,7 @@ Top-Level Directory/
     <p>{{ object.updated_at }}</p>
     <a href="{% url 'project_list' %}">Content</a>
 {% endblock %}
+{% endraw %}
 ```
 
 # Add Static Files
