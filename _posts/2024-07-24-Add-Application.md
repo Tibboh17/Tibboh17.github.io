@@ -231,7 +231,7 @@ mysite/
 
 ### Base Template
 
-```html
+``` html
 <!-- templates/base/base.html -->
 {% load static %}
 <!DOCTYPE html>
@@ -267,7 +267,7 @@ mysite/
 
 ### Main Templates
 
-```html
+``` html
 <!-- templates/main/index.html -->
 {% extends 'base/base.html' %}
 {% block contents %}
@@ -275,7 +275,7 @@ mysite/
 {% endblock %}
 ```
 
-```html
+``` html
 <!-- templates/main/about.html -->
 {% extends 'base/base.html' %}
 {% block contents %}
@@ -293,7 +293,7 @@ mysite/
 
 ### Project Templates
 
-```html
+``` html
 <!-- templates/blog/blog_list.html -->
 {% extends 'base/base.html' %}
 {% block contents %}
@@ -309,7 +309,7 @@ mysite/
 {% endblock %}
 ```
 
-```html
+``` html
 <!-- templates/blog/blog_detail.html -->
 {% extends 'base/base.html' %}
 {% block contents %}
@@ -336,7 +336,7 @@ mysite/
 
 ### CSS
 
-```css
+``` css
 /* static/css/custom.css */
 body {
     font-family: Arial, sans-serif;
@@ -371,7 +371,7 @@ nav ul li a {
 
 ### JS
 
-```javascript
+``` javascript
 // static/js/custom.js
 document.addEventListener('DOMContentLoaded', function () {
     console.log('Custom JS Loaded');
