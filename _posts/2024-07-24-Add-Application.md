@@ -234,7 +234,6 @@ mysite/
 
 ```html
 <!-- templates/base/base.html -->
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
