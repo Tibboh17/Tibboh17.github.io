@@ -46,13 +46,33 @@ urlpatterns = [
 
 ```python
 blog_list_db = [
-    {"id": 1, "title": "Let Tibboh Use Django", "content": "This is the content of blog 1", "author": "Author 1"},
-    {"id": 2, "title": "How can I become well on Python", "content": "This is the content of blog 2", "author": "Author 2"}
+    {
+    "id": 1,
+    "title": "Let Tibboh Use Django", 
+    "content": "This is the content of blog 1",
+    "author": "Author 1"
+    },
+    {
+    "id": 2,
+    "title": "How can I become well on Python", 
+    "content": "This is the content of blog 2",
+    "author": "Author 2"
+    }
 ]
 
 user_list_db = [
-    {"id": 1, "username": "moon", "email": "hojun@gmail.com", "password": "1234"},
-    {"id": 2, "username": "tibboh", "email": "jihun@gmail.com", "password": "1234"}
+    {
+    "id": 1,
+    "username": "moon", 
+    "email": "hojun@gmail.com", 
+    "password": "1234"
+    },
+    {
+    "id": 2,
+    "username": "tibboh", 
+    "email": "jihun@gmail.com", 
+    "password": "1234"
+    }
 ]
 ```
 
@@ -65,13 +85,33 @@ from django.shortcuts import render
 from django.shortcuts import HttpResponse
 
 project_list_db = [
-    {"id": 1, "title": "Let Tibboh Use Django", "content": "This is the content of blog 1", "author": "Author 1"},
-    {"id": 2, "title": "How can I become well on Python", "content": "This is the content of blog 2", "author": "Author 2"}
+    {
+    "id": 1, 
+    "title": "Let Tibboh Use Django", 
+    "content": "This is the content of blog 1", 
+    "author": "Author 1"
+    },
+    {
+    "id": 2, 
+    "title": "How can I become well on Python", 
+    "content": "This is the content of blog 2", 
+    "author": "Author 2"
+    }
 ]
 
 user_list_db = [
-    {"id": 1, "username": "moon", "email": "moon@abc.com", "password": "1234"},
-    {"id": 2, "username": "tibboh", "email": "tibboh@def.com", "password": "1234"}
+    {
+    "id": 1, 
+    "username": "moon", 
+    "email": "moon@abc.com", 
+    "password": "1234"
+    },
+    {
+    "id": 2, 
+    "username": "tibboh", 
+    "email": "tibboh@def.com", 
+    "password": "1234"
+    }
 ]
 
 def index(request):
@@ -116,6 +156,7 @@ def account_details(request, username):
 - We will use a Django template code to run python codes in html files.
 
 ```html
+{% raw %}
 <!-- project_list.html -->
 <!DOCTYPE html>
 <html lang="en">
@@ -133,9 +174,11 @@ def account_details(request, username):
     </ul>
 </body>
 </html>
+{% endraw %}
 ```
 
 ```html
+{% raw %}
 <!-- project_details.html -->
 <!DOCTYPE html>
 <html lang="en">
@@ -151,9 +194,11 @@ def account_details(request, username):
     <p>{{project.content}}</p>
 </body>
 </html>
+{% endraw %}
 ```
 
 ```html
+{% raw %}
 <!-- account_details.html -->
 <!DOCTYPE html>
 <html lang="en">
@@ -168,6 +213,7 @@ def account_details(request, username):
     <p>{{user.email}}</p>
 </body>
 </html>
+{% endraw %}
 ```
 
 ### Modify the Views
