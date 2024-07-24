@@ -231,9 +231,10 @@ mysite/
 
 ### Base Template
 
-```
+```html
+{% raw %}
 <!-- templates/base/base.html -->
- {% load static %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -263,38 +264,45 @@ mysite/
     <script src="{% static 'js/custom.js' %}"></script>
 </body>
 </html>
+{% endraw %}
 ```
-
 
 ### Main Templates
 
-```
+```html
+{% raw %}
 <!-- templates/main/index.html -->
 {% extends 'base/base.html' %}
 {% block contents %}
     <h1>Main Page</h1>
 {% endblock %}
+{% endraw %}
 ```
 
-```
+```html
+{% raw %}
 <!-- templates/main/about.html -->
 {% extends 'base/base.html' %}
 {% block contents %}
     <h1>Introduction Page</h1>
 {% endblock %}
+{% endraw %}
 ```
 
-```
+```html
+{% raw %}
 <!-- templates/main/contact.html -->
 {% extends 'base/base.html' %}
 {% block contents %}
     <h1>Contact Page</h1>
 {% endblock %}
+{% endraw %}
 ```
 
 ### Project Templates
 
-```
+```html
+{% raw %}
 <!-- templates/project/project_list.html -->
 {% extends 'base/base.html' %}
 {% block contents %}
@@ -308,9 +316,11 @@ mysite/
         {% endfor %}
     </ul>
 {% endblock %}
+{% endraw %}
 ```
 
-```
+```html
+{% raw %}
 <!-- templates/project/project_details.html -->
 {% extends 'base/base.html' %}
 {% block contents %}
@@ -320,6 +330,7 @@ mysite/
     <p>{{ object.updated_at }}</p>
     <a href="{% url 'project_list' %}">Content</a>
 {% endblock %}
+{% endraw %}
 ```
 
 # Add Static Files
