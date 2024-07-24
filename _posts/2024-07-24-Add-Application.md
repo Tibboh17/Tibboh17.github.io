@@ -199,7 +199,7 @@ project_database = [
         "thumbnail": "https://picsum.photos/200/300",
         "like_count": 5,
         "like_user": [10, 29, 30, 31, 32],
-    },
+    }
 ]
 
 def project_list(request):
@@ -216,7 +216,7 @@ def project_details(request, pk):
 ### Directory Structure
 
 ```
-mysite/
+Top-Level Directory/
     ├── templates/
     │   ├── base/
     │   │   └── base.html
@@ -224,15 +224,14 @@ mysite/
     │   │   ├── index.html
     │   │   ├── about.html
     │   │   └── contact.html
-    │   └── blog/
-    │       ├── blog_list.html
-    │       └── blog_detail.html
+    │   └── project/
+    │       ├── project_list.html
+    │       └── project_details.html
 ```
 
 ### Base Template
 
 ```html
-{% raw %}
 <!-- templates/base/base.html -->
 {% load static %}
 <!DOCTYPE html>
@@ -264,45 +263,37 @@ mysite/
     <script src="{% static 'js/custom.js' %}"></script>
 </body>
 </html>
-{% endraw %}
 ```
 
 ### Main Templates
 
 ```html
-{% raw %}
 <!-- templates/main/index.html -->
 {% extends 'base/base.html' %}
 {% block contents %}
     <h1>Main Page</h1>
 {% endblock %}
-{% endraw %}
 ```
 
 ```html
-{% raw %}
 <!-- templates/main/about.html -->
 {% extends 'base/base.html' %}
 {% block contents %}
     <h1>Introduction Page</h1>
 {% endblock %}
-{% endraw %}
 ```
 
 ```html
-{% raw %}
 <!-- templates/main/contact.html -->
 {% extends 'base/base.html' %}
 {% block contents %}
     <h1>Contact Page</h1>
 {% endblock %}
-{% endraw %}
 ```
 
 ### Project Templates
 
 ```html
-{% raw %}
 <!-- templates/project/project_list.html -->
 {% extends 'base/base.html' %}
 {% block contents %}
@@ -316,11 +307,9 @@ mysite/
         {% endfor %}
     </ul>
 {% endblock %}
-{% endraw %}
 ```
 
 ```html
-{% raw %}
 <!-- templates/project/project_details.html -->
 {% extends 'base/base.html' %}
 {% block contents %}
@@ -330,7 +319,6 @@ mysite/
     <p>{{ object.updated_at }}</p>
     <a href="{% url 'project_list' %}">Content</a>
 {% endblock %}
-{% endraw %}
 ```
 
 # Add Static Files
@@ -338,7 +326,7 @@ mysite/
 - Create a static directory and add CSS and JavaScript files.
 
 ```
-mysite/
+Top-Level Directory/
     ├── static/
     │   ├── css/
     │   │   └── custom.css
