@@ -231,7 +231,8 @@ mysite/
 
 ### Base Template
 
-``` html
+
+```html
 <!-- templates/base/base.html -->
 {% load static %}
 <!DOCTYPE html>
@@ -240,7 +241,7 @@ mysite/
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>weniv blog</title>
+    <title>Tibboh</title>
     <link rel="stylesheet" href="{% static 'css/custom.css' %}">
 </head>
 <body>
@@ -264,6 +265,7 @@ mysite/
 </body>
 </html>
 ```
+
 
 ### Main Templates
 
@@ -294,7 +296,7 @@ mysite/
 ### Project Templates
 
 ``` html
-<!-- templates/blog/blog_list.html -->
+<!-- templates/project/project_list.html -->
 {% extends 'base/base.html' %}
 {% block contents %}
     <h1>Project List</h1>
@@ -310,7 +312,7 @@ mysite/
 ```
 
 ``` html
-<!-- templates/blog/blog_detail.html -->
+<!-- templates/project/project_details.html -->
 {% extends 'base/base.html' %}
 {% block contents %}
     <h1>{{ object.title }}</h1>
