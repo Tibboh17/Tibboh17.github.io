@@ -51,7 +51,7 @@ django-admin startproject tibbohlog .
 # Creating and Setting Up the App
 
 ### Creating a Django App
-- Within the Django project, create and app named `main`.
+- Within the Django project, create an app named `main`.
 
 ```sh
 django-admin startapp main
