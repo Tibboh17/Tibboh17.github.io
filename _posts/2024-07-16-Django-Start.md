@@ -1,130 +1,120 @@
 ---
-title: Let Tibboh Use Django
+title: How Tibboh Start the First Django Project
 categories: [Python, Django]
 tag: [Python, Django, Web, Back-End]
 ---
 
-# Start Django with Creating a Simple Website
-- In this post, we will create a simple website using Django.
-- The main steps involve setting up the project, creating an application, configuring URLs, writing views, and creating templates.
- 
-# Setting Up the Project
-### Python Virtual Environment
-- First, set up and activate a virtual environment.
+# Overview
+- In this post, we will walk through the process of setting up a basic Django project.
+- This guide is designed by codes I have used for my first Django project.
+- By end of this post, you will have a Django web application with a simple sturucture.
 
-```powershell
+# Setting Up a Virtual Environment
+### Creating the Virtual Environment
+- First, set up a virtual environment to manage the project dependecies.
+
+```sh
 python -m venv venv
 ```
 
-```powershell
+### Activating the Virtual Environment
+- Activate the created virtual environment.
+- The command differs based on your operating system.
+
+```sh
+# Windows
 .\venv\Scripts\activate
 ```
 
-### Install Django and Start Project
-- With the vitual environment activated, install Django and start a new project.
-- The project name is `tibboh`.
+```sh
+# macOS/Linux
+source venv/bin/activate
+```
 
-```powershell
+# Installing Django and Starting the Project
+
+### Installing Django
+- With the virtual environment activated, install Django using pip.
+
+```sh
 pip install django
 ```
 
-```powershell
-django-admin startproject tibboh
+### Starting a Django Project
+- Create a new Django project in the current directory.
+- In this post, the project's name is `tibbohlog`.
+
+```sh
+django-admin startproject tibbohlog .
 ```
 
-### Run Database Migrations and Start Development Server
-- After the initial setup, run database migrations amd start the development server.
-- The command `migrate` reflects all the code we have written into the database.
-- Open your web browser and navigate to `http://127.0.0.1:8000/` to see the Django welcome page.
+# Creating and Setting Up the App
 
-```powershell
-python manage.py migrate
+### Creating a Django App
+- Within the Django project, create and app named `main`.
+
+```sh
+django-admin startapp main
 ```
 
-```powershell
-python manage.py runserver
-```
-
-### Modify Project Settings
-- Open the project setting file and configure allowed hosts.
-- In `tibboh/settings.py`, modify `ALLOWED_HOSTS`.
-```python
-ALLOWED_HOSTS = ["*"]
-```
-
-# Creating an Application
-### Create a New Application
-- Use the `startapp` command for this step.
-- We will call the application `main`.
-
-```powershell
-python manage.py startapp main
-```
-
-### Apply the Application
-- In `tibboh\settings.py`, modify `INSTALLED_APP` to use the application `main`.
+### Configuring URLs
+- Modify the project's URL configuration file and create a URL configuration file for the app to handle routing.
+- Update `tibbohlog/urls.py` to include the `main` app URLs.
+- Create `main/urls.py` and define the URL patterns.
 
 ```python
-INSTALLED_APPS = [
-    "django.contrib.admin",
-    "django.contrib.auth",
-    "django.contrib.contenttypes",
-    "django.contrib.sessions",
-    "django.contrib.messages",
-    "django.contrib.staticfiles",
-    "main"
-]
-```
-
-# Cofiguring URLs
-### Edit the Main URL File
-- We will include the new views.
-- Modify `tibboh/urls.py`.
-- Import `index`, `about`, `tibboh` from `views.py`, and we will write them in the next step.
-
-```python
+# tibbohlog/urls.py
 from django.contrib import admin
-from django.urls import path
-from main.views import index, about, tibboh
+from django.urls import path, include
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", index),
-    path("about/", about),
-    path("tibboh/", tibboh)
+    path("", include("main.urls")),
 ]
 ```
 
-# Writing Views
-### Create Views for Each URL
-- As we import funtions from `views.py`, we must write codes for them.
-- Edit `main/veiws.py`.
+```python
+# main/urls.py
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path("", views.index, name="index"),
+    path("about/", views.about, name="about"),
+    path("contact/", views.contact, name="contact"),
+]
+```
+
+# Setting Up Views
+
+### Defining View Functions
+- Modify `main/views.py` to define the view functions for eash URL.
 
 ```python
 from django.shortcuts import render
-from django.http import HttpResponse
 
 def index(request):
-    return HttpResponse("<h1>Index</h1>")
+    return render(request, "main/index.html")
 
 def about(request):
-    return HttpResponse("<h1>About</h1>")
+    return render(request, "main/about.html")
 
-def tibboh(request):
-    return HttpResponse("<h1>Tibboh</h1>")
+def contact(request):
+    return render(request, "main/contact.html")
 ```
 
 # Creating Templates
-### Create Template Files for Each View
-- We will make `index.html`, `about.html`, and `tibboh.html`.
-- Create `main/templates/main/` directory and store these templates.
-- These files will show us pages we intend.
+
+### Creating HTML Templates
+- Create a directory for templates within the `main` directory and add HTML files.
 
 ```html
-<!-- index.html -->
+<!-- main/templates/main/index.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index</title>
 </head>
 <body>
@@ -134,10 +124,12 @@ def tibboh(request):
 ```
 
 ```html
-<!-- about.html -->
+<!-- main/templates/main/about.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About</title>
 </head>
 <body>
@@ -147,38 +139,32 @@ def tibboh(request):
 ```
 
 ```html
-<!-- tibboh.html -->
+<!-- main/templates/main/contact.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Tibboh</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
 </head>
 <body>
-    <h1>Tibboh</h1>
+    <h1>Contact</h1>
 </body>
 </html>
 ```
 
-### Modify the Views
-- We should edit `main/views.py` to render the corresponding templates.
+# Running Migrations and the Development Server
 
-```python
-from django.shortcuts import render
+### Running Database Migrations
+- Apply the Django model changes to the database by running migrations.
 
-def index(request):
-    return render(request, 'main/index.html')
-
-def about(request):
-    return render(request, 'main/about.html')
-
-def tibboh(request):
-    return render(request, 'main/tibboh.html')
+```sh
+python manage.py migrate
 ```
 
-### Check the Development Server
-- Restart the server and verify that each URL is working.
-- We can see that from `http://127.0.0.1:8000/`, `http://127.0.0.1:8000/about/`,and `http://127.0.0.1:8000/tibboh/`.
+### Starting the Development Server
+- Run the development server to view the project locally
 
-```powershell
+```sh
 python manage.py runserver
 ```
