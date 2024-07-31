@@ -33,7 +33,7 @@ urlpatterns = [
     path("", views.index, name="index"),
     path("about/", views.about, name="about"),
     path("contact/", views.contact, name="contact"),
-    path("blog/", views.blog, name="blog"),
+    path("blog/", views.blog_list, name="blog_list"),
     path("blog/<int:id>", views.blog_details, name="blog_details"),
 ]
 ```
@@ -119,7 +119,7 @@ def blog_details(request, id):
     <h1>The page for Blog List</h1>
     <ul>
         {% for blog in object_list %}
-        <li><a href="/blog/{{blog.id}}">{{ blog.title }}</a></li>
+        <li><a href="/blog/{{ blog.id }}">{{ blog.title }}</a></li>
         {% endfor %}
     </ul>
 </body>
