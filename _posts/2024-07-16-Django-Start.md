@@ -10,14 +10,14 @@ tag: [Python, Django, Web, Back-End]
 - By end of this post, you will have a Django web application with a simple sturucture.
 
 # Setting Up a Virtual Environment
-### Creating the Virtual Environment
+## Creating the Virtual Environment
 - First, set up a virtual environment to manage the project dependecies.
 
 ```sh
 python -m venv venv
 ```
 
-### Activating the Virtual Environment
+## Activating the Virtual Environment
 - Activate the created virtual environment.
 - The command differs based on your operating system.
 
@@ -33,14 +33,14 @@ source venv/bin/activate
 
 # Installing Django and Starting the Project
 
-### Installing Django
+## Installing Django
 - With the virtual environment activated, install Django using pip.
 
 ```sh
 pip install django
 ```
 
-### Starting a Django Project
+## Starting a Django Project
 - Create a new Django project in the current directory.
 - In this post, the project's name is `tibbohlog`.
 
@@ -50,14 +50,14 @@ django-admin startproject tibbohlog .
 
 # Creating and Setting Up the App
 
-### Creating a Django App
+## Creating a Django App
 - Within the Django project, create an app named `main`.
 
 ```sh
 django-admin startapp main
 ```
 
-### Configuring URLs
+## Configuring URLs
 - Modify the project's URL configuration file and create a URL configuration file for the app to handle routing.
 - Update `tibbohlog/urls.py` to include the `main` app URLs.
 - Create `main/urls.py` and define the URL patterns.
@@ -87,7 +87,7 @@ urlpatterns = [
 
 # Setting Up Views
 
-### Defining View Functions
+## Defining View Functions
 - Modify `main/views.py` to define the view functions for eash URL.
 
 ```python
@@ -105,7 +105,7 @@ def contact(request):
 
 # Creating Templates
 
-### Creating HTML Templates
+## Creating HTML Templates
 - Create a directory for templates within the `main` directory and add HTML files.
 
 ```html
@@ -155,14 +155,14 @@ def contact(request):
 
 # Running Migrations and the Development Server
 
-### Running Database Migrations
+## Running Database Migrations
 - Apply the Django model changes to the database by running migrations.
 
 ```sh
 python manage.py migrate
 ```
 
-### Starting the Development Server
+## Starting the Development Server
 - Run the development server to view the project locally
 
 ```sh

@@ -10,7 +10,7 @@ tag: [Python, Django, Web, Back-End]
 
 # URL Structure and View Functions
 
-### Design Structure
+## Design Structure
 - The project consists of two applications `main`, `project`.
 - Below is a detailed mapping of URLs, view functions, and corresponding HTML files for each application.
 
@@ -23,9 +23,9 @@ tag: [Python, Django, Web, Back-End]
 | URL                 | View Function    | HTML Filename      | Notes                              |
 |---------------------|------------------|--------------------|------------------------------------|
 | project/            | project_list     | project_list.html  |                                    |
-| project/<int:pk>    | project_details  | project_detail.html| Redirects to 404 if post not found |
+| project/<int:id>    | project_details  | project_detail.html| Redirects to 404 if post not found |
 
-### Set Up the Application
+## Set Up the Application
 - Use `startapp` to create a new Django application named `project`.
 - Add the `project` application to `INSTALLED_APPS` in `tibboh/settings.py`
 - Configure the template settings to include the project's templates directory.
@@ -69,7 +69,7 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 
 # Configure URL Routing
 
-### Reflect URLs
+## Reflect URLs
 - Modify `urls.py` in each folder.
 
 ```python
@@ -109,7 +109,7 @@ urlpatterns = [
 
 # Define Views
 
-### View Functions
+## View Functions
 - Create view functions for the main and project applications.
 
 ```python
@@ -206,14 +206,14 @@ def project_list(request):
     context = {"object_list": project_database}
     return render(request, "project/project_list.html", context)
 
-def project_details(request, pk):
-    context = {"object": project_database[pk - 1]}
+def project_details(request, id):
+    context = {"object": project_database[id - 1]}
     return render(request, "project/project_details.html", context)
 ```
 
 # Create Templates
 
-### Directory Structure
+## Directory Structure
 
 ```
 Top-Level Directory/
@@ -229,7 +229,7 @@ Top-Level Directory/
     │       └── project_details.html
 ```
 
-### Base Template
+## Base Template
 
 ```html
 {% raw %}
@@ -267,7 +267,7 @@ Top-Level Directory/
 {% endraw %}
 ```
 
-### Main Templates
+## Main Templates
 
 ```html
 {% raw %}
@@ -299,7 +299,7 @@ Top-Level Directory/
 {% endraw %}
 ```
 
-### Project Templates
+## Project Templates
 
 ```html
 {% raw %}
@@ -334,7 +334,8 @@ Top-Level Directory/
 ```
 
 # Add Static Files
-### Directory Structure
+
+## Directory Structure
 - Create a static directory and add CSS and JavaScript files.
 
 ```
@@ -346,7 +347,7 @@ Top-Level Directory/
     │       └── custom.js
 ```
 
-### CSS
+## CSS
 
 ```css
 /* static/css/custom.css */
@@ -381,7 +382,7 @@ nav ul li a {
 }
 ```
 
-### JS
+## JS
 
 ```javascript
 // static/js/custom.js
