@@ -1,69 +1,65 @@
 ---
-title: How Tibboh Start the First Django Project
+title: Start the First Django Project
 categories: [Python, Django]
 tag: [Python, Django, Web, Back-End]
 ---
 
 # Overview
-- In this post, we will walk through the process of setting up a basic Django project.
-- This guide is designed by codes I have used for my first Django project.
-- By end of this post, you will have a Django web application with a simple sturucture.
+- Start the Django project by making our own site.
+- Make a simple web application using Django.
 
-# Setting Up a Virtual Environment
-## Creating the Virtual Environment
-- First, set up a virtual environment to manage the project dependecies.
+# Virtual Environment Setting
 
-```sh
+## Create `venv`
+- Set up the virtual environment for development and name it `venv`.
+
+```shell
 python -m venv venv
 ```
 
-## Activating the Virtual Environment
-- Activate the created virtual environment.
-- The command differs based on your operating system.
+## Start `venv`
+- Activate the virtual environment named `venv`.
 
-```sh
-# Windows
+```shell
 .\venv\Scripts\activate
 ```
 
-```sh
-# macOS/Linux
-source venv/bin/activate
-```
+# Create the First Application
 
-# Installing Django and Starting the Project
+## Configure the Application
+- We can create an application using the following command.
+- Name the application `main`.
 
-## Installing Django
-- With the virtual environment activated, install Django using pip.
-
-```sh
-pip install django
-```
-
-## Starting a Django Project
-- Create a new Django project in the current directory.
-- In this post, the project's name is `tibbohlog`.
-
-```sh
-django-admin startproject tibbohlog .
-```
-
-# Creating and Setting Up the App
-
-## Creating a Django App
-- Within the Django project, create an app named `main`.
-
-```sh
+```shell
 django-admin startapp main
 ```
 
-## Configuring URLs
-- Modify the project's URL configuration file and create a URL configuration file for the app to handle routing.
-- Update `tibbohlog/urls.py` to include the `main` app URLs.
-- Create `main/urls.py` and define the URL patterns.
+## Modify Setting
+- To reflect the application we made before, we should update `main/settings.py`
+- Modify `ALLOWED_HOSTS` and `INSTALLED_APPS` as follows.
 
 ```python
-# tibbohlog/urls.py
+ALLOWED_HOSTS = ["*"]
+
+INSTALLED_APPS = [
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "main",
+]
+```
+
+# Set Up the Application
+
+## Configure URL
+- Modify `blog/urls.py` and create `main/urls.py` as follows for mapping the URL.
+- We will modify views used in `main/urls.py` in the next step.
+
+```python
+# blog/urls.py
 from django.contrib import admin
 from django.urls import path, include
 
@@ -71,6 +67,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("main.urls")),
 ]
+
 ```
 
 ```python
@@ -81,14 +78,11 @@ from . import views
 urlpatterns = [
     path("", views.index, name="index"),
     path("about/", views.about, name="about"),
-    path("contact/", views.contact, name="contact"),
 ]
 ```
 
-# Setting Up Views
-
-## Defining View Functions
-- Modify `main/views.py` to define the view functions for eash URL.
+## Modify Views
+- Update `main/views.py` to define view functions for each URL as follows.
 
 ```python
 from django.shortcuts import render
@@ -98,15 +92,12 @@ def index(request):
 
 def about(request):
     return render(request, "main/about.html")
-
-def contact(request):
-    return render(request, "main/contact.html")
 ```
 
-# Creating Templates
-
-## Creating HTML Templates
-- Create a directory for templates within the `main` directory and add HTML files.
+## Create Templates
+- Templates help us to show pages we intend.
+- Create `templates` folder in `main` directory.
+- Create `main` folder in `templates` and and generate `index.html` and `about.html` inside it as follows.
 
 ```html
 <!-- main/templates/main/index.html -->
@@ -115,7 +106,7 @@ def contact(request):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index</title>
+    <title>Index Page</title>
 </head>
 <body>
     <h1>Index</h1>
@@ -125,12 +116,12 @@ def contact(request):
 
 ```html
 <!-- main/templates/main/about.html -->
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
+    <title>About Page</title>
 </head>
 <body>
     <h1>About</h1>
@@ -138,33 +129,18 @@ def contact(request):
 </html>
 ```
 
-```html
-<!-- main/templates/main/contact.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
-</head>
-<body>
-    <h1>Contact</h1>
-</body>
-</html>
-```
-
-# Running Migrations and the Development Server
+# Data Migration and Server
 
 ## Running Database Migrations
-- Apply the Django model changes to the database by running migrations.
+- Before run the server, we should run migrations.
 
-```sh
+```shell
 python manage.py migrate
 ```
 
-## Starting the Development Server
-- Run the development server to view the project locally
+## Development Server
+- Run the development server to see the project locally.
 
-```sh
+```shell
 python manage.py runserver
 ```
