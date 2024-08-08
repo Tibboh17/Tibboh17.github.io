@@ -24,7 +24,15 @@ python -m venv venv
 .\venv\Scripts\activate
 ```
 
-# Create the First Application
+# Start the Project
+
+## Generate the Project Files
+- By using the command as follows, generate the project.
+- The name of the project can be anything, but in this post, it will be `tibbohlog`.
+
+```shell
+django-admin startproject tibbohlog
+```
 
 ## Configure the Application
 - We can create an application using the following command.
@@ -55,8 +63,8 @@ INSTALLED_APPS = [
 # Set Up the Application
 
 ## Configure URL
-- Modify `blog/urls.py` and create `main/urls.py` as follows for mapping the URL.
-- We will modify views used in `main/urls.py` in the next step.
+- Modify `tibbohlog/urls.py` and create `main/urls.py` as follows for mapping the URL.
+- We will modify views will be used in `main/urls.py` in the next step.
 
 ```python
 # blog/urls.py
