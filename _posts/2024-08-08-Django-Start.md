@@ -1,12 +1,12 @@
 ---
-title: Start the First Django Project
+title: Start the Django Project for My Game Schedule
 categories: [Python, Django]
 tag: [Python, Django, Web, Back-End]
 ---
 
 # Overview
-- Start the Django project by making our own site.
-- Make a simple web application using Django.
+- Start the Django project by making a scheduler application.
+- Implement the basic app structure and views in this post.
 
 # Virtual Environment Setting
 
@@ -28,22 +28,23 @@ python -m venv venv
 
 ## Generate the Project Files
 - By using the command as follows, generate the project.
-- The name of the project can be anything, but in this post, it will be `tibbohlog`.
+- The name of the project can be anything, but in this post, it will be `scheduler`.
 
 ```shell
-django-admin startproject tibbohlog
+django-admin startproject scheduler
 ```
 
 ## Configure the Application
 - We can create an application using the following command.
-- Name the application `main`.
+- Name the application `todo_app`.
 
 ```shell
-django-admin startapp main
+cd scheduler
+django-admin startapp todo_app
 ```
 
 ## Modify Setting
-- To reflect the application we made before, we should update `main/settings.py`
+- To reflect the application we made before, we should update `scheduler/settings.py`
 - Modify `ALLOWED_HOSTS` and `INSTALLED_APPS` as follows.
 
 ```python
@@ -56,85 +57,37 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "main",
+    "todo_app",
 ]
 ```
 
 # Set Up the Application
 
-## Configure URL
-- Modify `tibbohlog/urls.py` and create `main/urls.py` as follows for mapping the URL.
-- We will modify views will be used in `main/urls.py` in the next step.
+## Configure Model
+- The model defines the structure of the database, and determines how data is stored and managed.
+- In this post, we will define `List` and `Task` in `todo_app/models.py` 
 
 ```python
-# blog/urls.py
-from django.contrib import admin
-from django.urls import path, include
+from django.db import models
 
-urlpatterns = [
-    path("admin/", admin.site.urls),
-    path("", include("main.urls")),
-]
+class List(models.Model):
+    title = models.CharField(max_length=100)
+    description = models.TextField(blank=True)
 
-```
+    def __str__(self):
+        return self.title
+    
+class Task(models.Model):
+    title = models.CharField(max_length=100)
+    description = models.TextField(blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    due = models.DateTimeField(null=True, blank=True)
+    done = models.BooleanField(default=False)
+    task_list = models.ForeignKey(List, on_delete=models.CASCADE, related_name="tasks")
 
-```python
-# main/urls.py
-from django.urls import path
-from . import views
-
-urlpatterns = [
-    path("", views.index, name="index"),
-    path("about/", views.about, name="about"),
-]
-```
-
-## Modify Views
-- Update `main/views.py` to define view functions for each URL as follows.
-
-```python
-from django.shortcuts import render
-
-def index(request):
-    return render(request, "main/index.html")
-
-def about(request):
-    return render(request, "main/about.html")
-```
-
-## Create Templates
-- Templates help us to show pages we intend.
-- Create `templates` folder in `main` directory.
-- Create `main` folder in `templates` and and generate `index.html` and `about.html` inside it as follows.
-
-```html
-<!-- main/templates/main/index.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index Page</title>
-</head>
-<body>
-    <h1>Index</h1>
-</body>
-</html>
-```
-
-```html
-<!-- main/templates/main/about.html -->
- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Page</title>
-</head>
-<body>
-    <h1>About</h1>
-</body>
-</html>
+    def __str__(self):
+        return self.title
 ```
 
 # Data Migration and Server
@@ -143,6 +96,7 @@ def about(request):
 - Before run the server, we should run migrations.
 
 ```shell
+python manage.py makemigrations
 python manage.py migrate
 ```
 
