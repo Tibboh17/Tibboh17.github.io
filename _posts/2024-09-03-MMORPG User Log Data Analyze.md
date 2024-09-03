@@ -14,20 +14,20 @@ tags: [Data Analyze, Python, EDA, Pandas, SQL]
 
 우선 ChatGPT에게 다음 항목들을 반영하여 데이터를 생성하도록 할 것입니다.
 
-- Timestamp: 로그 기록 시간 (YYYY-MM-DD HH 형식)
-- UserID: 유저의 고유 ID
-- CharacterName: 캐릭터 이름
-- ActionType: 행동 유형 (로그인, 로그아웃, 퀘스트 시작, 퀘스트 완료, 아이템 구매, PvP 전투 등)
-- ActionDetails: 행동에 대한 세부 정보 (예: 퀘스트 이름, 아이템 이름, 전투 결과 등)
-- Location: 유저의 현재 위치 (맵 이름 또는 좌표)
-- Level: 캐릭터 레벨
-- XP: 행동으로 얻은 경험치
-- Currency: 행동으로 얻거나 사용한 게임 내 화폐
-- PartyID: 파티 ID (유저가 파티에 속해 있을 경우)
-- GuildID: 길드 ID (유저가 길드에 속해 있을 경우)
-- Latency: 네트워크 지연 시간 (ms)
-- Churn: 게임 이탈 여부 (유저가 30일 이상 게임에 로그인하지 않은 경우 True로 표시)
-- HasPurchased: 게임 내 구매 여부 (유저가 게임 내에서 한 번이라도 구매를 했을 경우 True로 표시)
+- `Timestamp`: 로그 기록 시간 (YYYY-MM-DD HH 형식)
+- `UserID`: 유저의 고유 ID
+- `CharacterName`: 캐릭터 이름
+- `ActionType`: 행동 유형 (로그인, 로그아웃, 퀘스트 시작, 퀘스트 완료, 아이템 구매, PvP 전투 등)
+- `ActionDetails`: 행동에 대한 세부 정보 (예: 퀘스트 이름, 아이템 이름, 전투 결과 등)
+- `Location`: 유저의 현재 위치 (맵 이름 또는 좌표)
+- `Level`: 캐릭터 레벨
+- `XP`: 행동으로 얻은 경험치
+- `Currency`: 행동으로 얻거나 사용한 게임 내 화폐
+- `PartyID`: 파티 ID (유저가 파티에 속해 있을 경우)
+- `GuildID`: 길드 ID (유저가 길드에 속해 있을 경우)
+- `Latency`: 네트워크 지연 시간 (ms)
+- `Churn`: 게임 이탈 여부 (유저가 30일 이상 게임에 로그인하지 않은 경우 True로 표시)
+- `HasPurchased`: 게임 내 구매 여부 (유저가 게임 내에서 한 번이라도 구매를 했을 경우 True로 표시)
 
 이러한 항목들을 반영하여 ChatGPT에 데이터를 생성하도록 요청할 것이며, 생성된 예시 데이터를 확인하여 제 의도에 맞게 올바르게 반영되었는지 검토할 예정입니다.
 
