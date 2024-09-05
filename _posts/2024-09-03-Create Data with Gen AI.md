@@ -8,11 +8,11 @@ tags: [Data Analyze, Python, EDA, Pandas, SQL]
 
 게임 로그 데이터는 보안 문제와 개인정보 보호 때문에 개인이 직접 접근하기 어려운 경우가 많습니다. 또한, 원하는 주제에 대한 데이터를 다루는 연습을 하고 싶어도, 조건에 맞는 데이터를 구하는 것은 쉽지 않은 현실입니다. 이번 포스트에서는 생성형 AI를 활용하여 필요한 데이터를 생성하고, 이를 SQL 로컬 서버에 저장하는 과정을 소개하겠습니다. 이번에 제가 선정한 주제는 MMORPG 유저 로그 데이터입니다.
 
-데이터를 생성하기 위해 제 구독 서비스로 이용 중인 ChatGPT-4를 사용할 예정입니다. 또한, SQL 및 Workbench의 설치와 사용법에 대해서는 다루지 않을 예정이니 이 점을 유의해 주시기 바랍니다.
+데이터를 생성하기 위해 제 구독 서비스로 이용 중인 `ChatGPT-4`를 사용할 예정입니다. 또한, `SQL` 및 `Workbench`의 설치와 사용법에 대해서는 다루지 않을 예정이니 이 점을 유의해 주시기 바랍니다.
 
 # 데이터 생성
 
-우선 ChatGPT에게 다음 항목들을 반영하여 데이터를 생성하도록 할 것입니다.
+데이터를 생성하기 위해 `ChatGPT`에게 요청하면, 요구한 데이터에 따라 항목들을 나열해줄 것입니다. 현재 항목들에 만족한다면 바로 데이터를 생성할 수 있으며, 그렇지 않다면 원하는 추가 항목들을 반영하도록 지시하여 데이터를 쉽게 생성할 수 있습니다. 다음 내용들을 끌어내기 위해 대화한 횟수는 단 3번에 불과합니다.
 
 - `Timestamp`: 로그 기록 시간 (YYYY-MM-DD HH 형식)
 - `UserID`: 유저의 고유 ID
@@ -40,15 +40,17 @@ tags: [Data Analyze, Python, EDA, Pandas, SQL]
 | 2024-09-03 15:05:44 | 10003  | WindArcher    | PvP           | "Won vs ThunderWarrior"| Arena           | 40    | 300  | 0        | 3002    | NULL    | 28      | True  | True         |
 | 2024-09-03 15:10:11 | 10001  | ShadowKnight  | Logout        | -                      | StartTown       | 35    | 0    | 0        | NULL    | 2001    | 33      | False | True         |
 
-예시 데이터가 올바르게 생성되었으므로, 이제 대량의 유저 데이터 생성을 진행할 예정입니다. 저자는 총 10,000명의 데이터를 CSV 파일로 생성할 계획입니다. 생성된 데이터를 프로젝트 디렉토리에 저장한 후, SQL 데이터베이스에 저장하는 작업을 진행할 준비를 하겠습니다.
+예시 데이터가 올바르게 생성되었으므로, 이제 대량의 유저 데이터 생성을 진행할 예정입니다. 저자는 총 10,000명의 데이터를 CSV 파일로 생성할 계획입니다. 생성된 데이터를 프로젝트 디렉토리에 저장한 후, `SQL` 데이터베이스에 저장하는 작업을 진행할 준비를 하겠습니다.
 
 # 데이터 저장
-먼저 우리는 Python을 통해 생성된 데이터를 불러와 이를 SQL 로컬 서버에 있는 데이터베이스에 저장할 계획입니다. 이에 앞서 2개의 Python 라이브러리를 설치하겠습니다.
+먼저 우리는 `Python`을 통해 생성된 데이터를 불러와 이를 `SQL` 로컬 서버에 있는 데이터베이스에 저장할 계획입니다. 이에 앞서 2개의 `Python` 라이브러리를 설치하겠습니다.
+
 ```shell
 pip install pandas
 pip install sqlalchemy
+
 ```
-**Pandas**는 내 컴퓨터나 클라우드 저장소에 있는 데이터를 Python으로 불러오는 데 도움을 주는 라이브러리입니다. **SQLAlchemy**는 Python에서 SQL을 사용할 수 있도록 해주는 도구로, 이번 포스트에서는 SQL 로컬 서버와 Python을 연결해주는 역할을 수행합니다. 설치를 마치고 나면 **Jupyter Notebook** 환경에서 데이터를 불러오는 작업을 진행하겠습니다.
+`Pandas`는 내 컴퓨터나 클라우드 저장소에 있는 데이터를 `Python`으로 불러오는 데 도움을 주는 라이브러리입니다. `SQLAlchemy`는 `Python`에서 `SQL`을 사용할 수 있도록 해주는 도구로, 이번 포스트에서는 `SQL` 로컬 서버와 `Python`을 연결해주는 역할을 수행합니다. 설치를 마치고 나면 `Jupyter Notebook` 환경에서 데이터를 불러오는 작업을 진행하겠습니다.
 
 ```python
 import pandas as pd
@@ -57,7 +59,7 @@ file_path = "your file path"
 df = pd.read_csv(file_path)
 ```
 
-위 코드를 통해 ChatGPT를 통해 생성한 데이터를 불러오게 됩니다. 이제 내 컴퓨터에 설치된 SQL 로컬 서버로 데이터를 옮기기위한 준비를 하겠습니다.
+위 코드를 통해 `ChatGPT`를 통해 생성한 데이터를 불러오게 됩니다. 이제 내 컴퓨터에 설치된 `SQL` 로컬 서버로 데이터를 옮기기위한 준비를 하겠습니다.
 
 ```python
 from sqlalchemy import create_engine
@@ -65,7 +67,7 @@ from sqlalchemy import create_engine
 engine = create_engine("mysql+pymysql://username:password@host/database")
 ```
 
-위 코드는 먼저 SQLAlchemy에서 데이터베이스 연결을 생성하는 create_engine 함수를 가져옵니다. 그런 다음 MySQL 데이터베이스와 PyMySQL 드라이버를 사용하여 연결을 설정하고, 설정한 내용에 따라 데이터를 데이터베이스에 저장할 수 있는 엔진을 생성합니다. 아래의 요소들에 본인의 정보를 입력하면 됩니다.
+위 코드는 먼저 `SQLAlchemy`에서 데이터베이스 연결을 생성하는 `create_engine` 함수를 가져옵니다. 그런 다음 `MySQL` 데이터베이스와 `PyMySQL` 드라이버를 사용하여 연결을 설정하고, 설정한 내용에 따라 데이터를 데이터베이스에 저장할 수 있는 엔진을 생성합니다. 아래의 요소들에 본인의 정보를 입력하면 됩니다.
 
 - `username`: MySQL 데이터베이스 사용자 이름
 - `password`: MySQL 데이터베이스 비밀번호
@@ -78,6 +80,6 @@ engine = create_engine("mysql+pymysql://username:password@host/database")
 df.to_sql("tablename", con=engine, if_exists="replace", index=False)
 ```
 
-`tablename`에 데이터가 담길 테이블의 이름을 설정한 후, 코드를 실행하면 본인의 SQL 데이터베이스에서 해당 데이터가 저장된 모습을 확인할 수 있습니다.
+`tablename`에 데이터가 담길 테이블의 이름을 설정한 후, 코드를 실행하면 본인의 `SQL` 데이터베이스에서 해당 데이터가 저장된 모습을 확인할 수 있습니다.
 
-![Workbench 예시 화면](./assets/img/SQL_Example.png)
+![Workbench 예시 화면](./assets/img/SQL_Example_1.png)
