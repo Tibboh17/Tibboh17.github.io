@@ -42,7 +42,7 @@ print(df.head())
 
 `sql_query`를 통해 `SQL` 데이터에서 불러오고자 하는 데이터를 지정할 수 있습니다. 이때, 데이터의 이름을 `your_table` 자리에 입력하면 됩니다. 이 과정을 통해 `Pandas`의 `DataFrame`에 우리가 원하는 데이터를 저장하고, 그 데이터의 일부분을 출력한 결과는 다음과 같습니다.
 
-![Pandas 예시 화면](./assets/img/SQL_Example_2.png)
+![Pandas 예시 화면](./assets/img/MMORPG/SQL_Example_2.png)
 
 다음 코드를 통해 `Pandas`를 활용한 데이터의 기본 정보를 확인할 수 있습니다.
 
@@ -50,10 +50,10 @@ print(df.head())
 df.info()
 ```
 
-![Pandas 예시 화면](./assets/img/SQL_Example_3.png)
+![Pandas 예시 화면](./assets/img/MMORPG/SQL_Example_3.png)
 
 ```python
 df.describe()
 ```
 
-![Pandas 예시 화면](./assets/img/SQL_Example_4.png)
+![Pandas 예시 화면](./assets/img/MMORPG/SQL_Example_4.png)

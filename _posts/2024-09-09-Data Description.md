@@ -30,7 +30,7 @@ df = pd.read_sql(sql_query, engine)
 ```python
 df.shape
 ```
-![Pandas 예시 화면](./assets/img/SQL_Example_5.png)
+![Pandas 예시 화면](./assets/img/MMORPG/SQL_Example_5.png)
 
 위 코드를 통해 이 데이터셋에는 14개의 필드와 110000개의 데이터가 포함되어 있는 것을 확인할 수 있습니다.
 
@@ -38,7 +38,7 @@ df.shape
 df.info()
 ```
 
-![Pandas 예시 화면](./assets/img/SQL_Example_6.png)
+![Pandas 예시 화면](./assets/img/MMORPG/SQL_Example_6.png)
 
 이번에는 각 필드에 대한 정보를 확인해보겠습니다. 위 정보에서 `Dtype`을 통해 데이터의 타입을 확인할 수 있습니다. 여기서 주목할 점은 `Timestamp` 필드의 데이터 타입이 `object`인 것 입니다. 이 필드는 이벤트 발생 날짜와 시간을 나타내므로, 날짜 및 시간 형식이어야 합니다. 다음 코드를 통해 `Timestamp`의 데이터 타입을 변환하겠습니다.
 
@@ -47,7 +47,7 @@ df["Timestamp"] = pd.to_datetime(df["Timestamp"])
 df.info()
 ```
 
-![Pandas 예시 화면](./assets/img/SQL_Example_7.png)
+![Pandas 예시 화면](./assets/img/MMORPG/SQL_Example_7.png)
 
 코드를 실행한 결과 올바르게 데이터 타입이 변경되었습니다. 
 
@@ -72,7 +72,7 @@ missing_values_after = df[["PartyID", "GuildID"]].isnull().sum()
 print(missing_values_after)
 ```
 
-![Pandas 예시 화면](./assets/img/SQL_Example_8.png)
+![Pandas 예시 화면](./assets/img/MMORPG/SQL_Example_8.png)
 
 결과에서 알 수 있듯이, 모든 결측치가 제대로 대체되어 총 결측치의 개수가 `0`이 되었다는 것을 확인할 수 있습니다.
 
@@ -84,7 +84,7 @@ print(missing_values_after)
 df.describe()
 ```
 
-![Pandas 예시 화면](./assets/img/SQL_Example_9.png)
+![Pandas 예시 화면](./assets/img/MMORPG/SQL_Example_9.png)
 
 1. **Timestamp** (시간 정보)
     - 기초 통계 자료를 통해 데이터는 2024년 1월부터 9월까지 약 9개월에 걸쳐 수집되었음을 알 수 있습니다.
@@ -108,7 +108,7 @@ df.describe()
     - 지연 시간은 대부분 사용자들에게 안정적으로 나타납니다. 평균 지연 시간은 85ms로, 상위 25%는 118ms 이상의 지연 시간을 겪고 있습니다. 최대값이 150ms인 것으로 보아, 일부 사용자들은 네트워크 연결 문제로 인해 다소의 어려움을 겪을 수 있음을 시사합니다.
 
 8. **Churn** (사용자 이탈 여부)
-    - 평균값이 0.227이라는 것은 약 22.7%의 사용자가 이탈한 것으로 보입니다. 즉, 데이터에 포함된 사용자 중 약 1/4에 가까운 비율이 게임을 중단한 상태입니다. 따라서 사용자 이탈을 방지하기 위한 추가 분석이 필요할 수 있습니다.
+    - 평균값이 0.549이라는 것은 약 54.9%의 사용자가 이탈한 것으로 보입니다. 즉, 데이터에 포함된 사용자 중 1/2이 넘는 비율이 게임을 중단한 상태입니다. 따라서 사용자 이탈을 방지하기 위한 추가 분석이 필요할 수 있습니다.
 
 9. **HasPurchased** (구매 여부)
     - 약 86.7%의 사용자가 게임 내에서 구매를 한 경험이 있습니다. 이는 대부분의 사용자들이 게임 내에서 화폐 또는 아이템을 구매하는 경향이 있음을 나타냅니다. 구매 여부는 게임의 수익성과 밀접한 관련이 있으며, 구매 사용자와 비구매 사용자 간의 행동 차이를 분석하는 것도 유의미할 수 있습니다.
