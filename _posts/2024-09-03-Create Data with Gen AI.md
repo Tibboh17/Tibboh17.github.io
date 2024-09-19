@@ -82,4 +82,4 @@ df.to_sql("tablename", con=engine, if_exists="replace", index=False)
 
 `tablename`에 데이터가 담길 테이블의 이름을 설정한 후, 코드를 실행하면 본인의 `SQL` 데이터베이스에서 해당 데이터가 저장된 모습을 확인할 수 있습니다.
 
-![Workbench 예시 화면](./assets/img/SQL_Example_1.png)
+![Workbench 예시 화면](./assets/img/MMORPG/SQL_Example_1.png)
