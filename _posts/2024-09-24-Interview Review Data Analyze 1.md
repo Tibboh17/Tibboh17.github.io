@@ -1,6 +1,6 @@
 ---
 title: 2024-09-24 면접 회고
-categories: [Interview, Data Analyze]
+categories: [Interview, Review]
 tags: [Interview, Review, Data Analyze]
 ---
 
