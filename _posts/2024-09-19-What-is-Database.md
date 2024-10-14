@@ -62,7 +62,7 @@ tags: [Database, Data]
 
 - **Key**
     - `Data`를 식별하거나 관계를 설정하는 데 사용되는 속성입니다. 
-    - 대표적으로 Primary Key는 테이블 내에서 각 행을 고유하게 식별하며, Foreign Key는 테이블 간의 관계를 나타냅니다.
+    - 대표적으로 *Primary Key*는 테이블 내에서 각 행을 고유하게 식별하며, *Foreign Key*는 테이블 간의 관계를 나타냅니다.
 
 이러한 `Database`는 `Data`를 저장하고 관리하는 방식, `Data` 구조, 그리고 사용 목적에 따라 다양한 유형으로 나눌 수 있습니다. 다음 내용으로 `Database`의 종류를 간략하게 소개하겠습니다.
 
@@ -75,7 +75,7 @@ tags: [Database, Data]
     - 예시로 MySQL, PostgreSQL, Oracle 등이 있습니다.
 
 - **Non-relational Database**
-    - NoSQL `Database`라고도 하며, `Data`를 테이블 관계 외의 다양한 방식으로 저장합니다.
+    - *NoSQL* `Database`라고도 하며, `Data`를 테이블 관계 외의 다양한 방식으로 저장합니다.
     - 문서, 키-값, 그래프, 컬럼 저장소 방식 등이 있습니다.
     - 예시로 MongoDB, Cassandra, Neo4j 등이 있습니다.
 
@@ -86,7 +86,7 @@ tags: [Database, Data]
 
 위에서 소개한 `Database` 외에도 다양한 유형이 존재합니다. 특정 `Database`를 선택할 때는 `Data`의 구조와 복잡성, 처리할 `Data`의 양과 성능 요구사항, 그리고 애플리케이션의 용도와 확장성을 고려해야 합니다. 이러한 요소를 바탕으로 관계형, 비관계형, 또는 객체 지향 중에서 적합한 것을 선택할 수 있습니다. 최종 선택의 핵심은 `Data`의 특성과 애플리케이션의 요구에 가장 잘 부합하는 `Database`를 찾는 것입니다.
 
-다음은 `Database`의 구조입니다. 이는 `Data`를 저장하고 관리하기 위해 `Database`가 정의하는 방식과 계층을 의미합니다. 일반적으로 서적과 자료에서는 **Three Level Architecture of Database**로 소개합니다.
+다음은 `Database`의 구조입니다. 이는 `Data`를 저장하고 관리하기 위해 `Database`가 정의하는 방식과 계층을 의미합니다. 일반적으로 서적과 자료에서는 *Three Level Architecture of Database*로 소개합니다.
 
 -  **Physical Level**
     - Internal Level.
