@@ -1,5 +1,5 @@
 ---
-title: What is DBMS?
+title: What is ERD?
 categories: [Database, Fundamentals of Database]
 tags: [Database, Data, ERD, Modeling]
 ---
