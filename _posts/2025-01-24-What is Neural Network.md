@@ -19,12 +19,12 @@ math: true
 
 인공 신경망도 이와 유사한 구조를 가집니다. 하지만 뉴런 대신 **노드(Node)**가 사용되고, 시냅스 역할을 하는 것은 **가중치(Weight)**라는 숫자 값입니다.
 
-![Neural Network](./assets/img/AI-Basic/Neural_Network.png)
+![Neural Network](./assets/img/AI-Basic/Neural_Network.png){: width="500"}
 _Comparison of Biological Neuron and Artificial Neuron_
 
 # Architecture of Artificial Neural Network
 
-![Architecture of Artificial Neural Network](./assets/img/AI-Basic/Architecture_of_Artificial_Neural_Network.png){: width="884" height="881"}
+![Architecture of Artificial Neural Network](./assets/img/AI-Basic/Architecture_of_Artificial_Neural_Network.png){: width="500"}
 _Explanation of the Basic Structure of Artificial Neural Network_
 
 인공 신경망의 노드는 **입력(Input)**, **가중치(Weight)**, **편향(Bias)**, **활성화 함수(Activation Function)**, **출력(Output)**으로 구성됩니다. 이들의 역할은 다음과 같습니다.
@@ -55,7 +55,7 @@ _Explanation of the Basic Structure of Artificial Neural Network_
 
 앞서 설명한 구성 요소를 활용하여 인공 뉴런은 입력값으로부터 출력값을 계산합니다. 이 계산의 구체적인 과정은 다음과 같습니다.
 
-- ****Collecting Input Values****
+- **Collecting Input Values**
     - 입력값이 노드로 들어옵니다.
 
 $$
